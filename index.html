@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+        
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Parisienne', cursive;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+            position: relative;
+        }
+        .heart-button {
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+            position: relative;
+        }
+        .yes-button {
+            background-color: #ff4b7b;
+            color: white;
+        }
+        .yes-button:hover {
+            background-color: #ff1e5d;
+        }
+        .no-button {
+            background-color: white;
+            color: #ff4b7b;
+            position: absolute;
+        }
+        .falling-hearts {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            animation: floating 2s infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .music button {
+            animation: bounce 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Will You Be My Valentine  purushaaa? 💕</h1>
+        <button class="heart-button yes-button" onclick="goToSurprise()">Yes 💘</button>
+        <button class="heart-button no-button" id="no-btn">No (no way you can touch it😉😎)</button>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://github.com/anitha05762/yuvananitha/blob/main/Haan%20Ke%20Haan%20Maharaj%20128%20Kbps.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music">
+        <button class="heart-button" onclick="playMusic()">🎶 Play Music</button>
+    </div>
+
+    <script>
+        function goToSurprise() {
+            window.location.href = "https://anithayuvan.my.canva.site/";
+        }
+
+        function playMusic() {
+            let music = document.getElementById('bg-music');
+            music.play();
+        }
+
+        document.getElementById('no-btn').addEventListener('mouseover', function() {
+            let x = Math.random() * (window.innerWidth - 150);
+            let y = Math.random() * (window.innerHeight - 80);
+            this.style.position = "absolute";
+            this.style.left = x + 'px';
+            this.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
